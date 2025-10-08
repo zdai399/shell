@@ -28,11 +28,11 @@ unzip -q rawdata.zip
 # Complete assignment here
 
 # 1. Create a directory named data
-mkdir /data
+mkdir -p ./data
 # 2. Move the ./rawdata directory to ./data/raw
-mv ./rawdata data/raw
+mv ./rawdata ./data/raw
 # 3. List the contents of the ./data/raw directory
-ls data/raw
+ls ./data/raw
 # 4. In ./data/processed, create the following directories: server_logs, user_logs, and event_logs
 cd data
 mkdir processed
@@ -51,7 +51,7 @@ rm raw/*ipaddr*
 rm processed/user_logs/*ipaddr*
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
 touch inventory.txt
-find processed > inventory.txt
+find processed -mindepth 2 -type f > inventory.txt
 ###########################################
 
 echo "Project setup is complete!"
